@@ -1,4 +1,4 @@
-function [V,H]=arnoldi(A,v1,m,err)
+function [V,H]=arnoldi(A,v1,m,eps)
 v1=v1/norm(v1);
 n=size(A,1);
 m=min(n,m);%!!!!!!!!!!!!!!
@@ -17,7 +17,7 @@ for j=1:m
         return
     end
     tmp=norm(w);
-    if(tmp<err)
+    if(tmp<eps)
         %stop
         disp('end cuz 0');
         return
