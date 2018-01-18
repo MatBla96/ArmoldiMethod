@@ -3,6 +3,9 @@ v1=rand(size(A,1),1);
 v1=v1/norm(v1);
 n=size(A,1);
 m=min(n,m);
+if(m==0)
+    m=n;
+end
 H=zeros(m,m);
 V=zeros(n,m);
 V(:,1)=v1;    
@@ -21,7 +24,7 @@ for j=1:m
     if(tmp<eps)
         %stop
         %eigenvalues are exact
-        disp('end cuz 0');
+        disp(['end cuz 0 only ',num2str(j),' of ',num2str(n),' iterations']);
         %clear unwanted parts
         H=H(1:j,1:j);
         V=V(:,1:j);
